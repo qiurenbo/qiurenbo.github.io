@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiurenbo.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="概念市盈率（Price Earnings Ratio，简称 P&#x2F;E 或 PER），也称“本益比”、“股价收益比率”或“市价盈利比率（简称市盈率）”。它是指股票价格除以每股收益(每股收益,EPS)的比率，或以公司市值除以年度净利润。它最早是由 20 世纪初高盛集团的一个合伙人发明的，详见《揭秘高盛》。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="市盈率">
+<meta property="og:url" content="https://qiurenbo.github.io/2020/12/21/pe/index.html">
+<meta property="og:site_name" content="邱青岑的经济日志">
+<meta property="og:description" content="概念市盈率（Price Earnings Ratio，简称 P&#x2F;E 或 PER），也称“本益比”、“股价收益比率”或“市价盈利比率（简称市盈率）”。它是指股票价格除以每股收益(每股收益,EPS)的比率，或以公司市值除以年度净利润。它最早是由 20 世纪初高盛集团的一个合伙人发明的，详见《揭秘高盛》。">
+<meta property="og:locale">
+<meta property="og:image" content="https://qiurenbo.github.io/2020/12/21/pe/charlotte-mayank-ii-photography-nUlVAIEn2tM-unsplash.jpg">
+<meta property="article:published_time" content="2020-12-21T12:12:27.000Z">
+<meta property="article:modified_time" content="2021-03-04T13:37:52.571Z">
+<meta property="article:author" content="qiurenbo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qiurenbo.github.io/2020/12/21/pe/charlotte-mayank-ii-photography-nUlVAIEn2tM-unsplash.jpg">
+
+<link rel="canonical" href="https://qiurenbo.github.io/2020/12/21/pe/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>市盈率 | 邱青岑的经济日志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">邱青岑的经济日志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://qiurenbo.github.io/2020/12/21/pe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="qiurenbo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="邱青岑的经济日志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          市盈率
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-21 12:12:27" itemprop="dateCreated datePublished" datetime="2020-12-21T12:12:27+00:00">2020-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-04 13:37:52" itemprop="dateModified" datetime="2021-03-04T13:37:52+00:00">2021-03-04</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="/2020/12/21/pe/charlotte-mayank-ii-photography-nUlVAIEn2tM-unsplash.jpg"></p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>市盈率（Price Earnings Ratio，简称 P/E 或 PER），也称“本益比”、“股价收益比率”或“市价盈利比率（简称市盈率）”。它是指股票价格除以每股收益(每股收益,EPS)的比率，或以公司市值除以年度净利润。它最早是由 20 世纪初高盛集团的一个合伙人发明的，详见《揭秘高盛》。</p>
+<a id="more"></a>
+
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>假如包总有个面馆，每年除去杂七杂八的成本费用税收等，到手 10 万元的净利润，那么现在有人要买包总的面馆，包总开价 100 万，那么这个 100 万就是面馆的市值，100 万除以 10 万等于 10，这个 10 就是市盈率，也相当于购买面馆的回本年限。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>根据计算时采用的不同方法，市盈率可以一般分为三种：静态市盈率、滚动市盈率和动态市盈率。</p>
+<p>静态市盈率，简称 PE LYR，计算公式：当前总市值除以去年一年的总净利润。我们买公司就是买未来，你用一个过去的净利润，显然没有什么意义。</p>
+<p>动态市盈率，简称 PE（动），计算方式：当前总市值除以明年的净利润。注意，这里明年的净利润，其实是预测的，说得难听点这就是“虚”的。就拿不同的券商来说，估出来的数据差别都很大。当然，PE（动）的优点也很明显，它可以帮助我们站在未来的角度来判断公司的估值贵贱（ps：老司机可以用）。</p>
+<p>滚动市盈率，简称 PE-TTM，计算方式：当前总市值除以前面四个季度的总净利润。“去年一年”和“前面四个季度”有什么区别，我就不需要多加解释了，简单点想就是 PE TTM 要比 PE LYR 更加准确一点，数据来得更新一些。</p>
+<h2 id="论断"><a href="#论断" class="headerlink" title="论断"></a>论断</h2><p>这里引入彼得林奇的一个著名的论断：任何一家公司的股票如果定价合理的话，市盈率就会与收益增长率相等，这就是【PEG 估值法】的来源。计算公式：PEG=PE/公司盈利增长率。PEG=1 的时候是合理估值，小于 1 是低估，大于 1 是高估。</p>
+<p>也就是说假设一家企业未来三年的净利润年复合增速是 20%，那么它的合理市盈率应该是 20 倍，假设一家企业未来三年的净利润年复合增速是 30%，那么它的合理市盈率应该是 30 倍。这说明，市盈率和净利润的增长是有关系的。</p>
+<p>在具体使用过程中，还有一个规律，大家记住就行，处于成长期的公司市盈率高于成熟期的企业，好公司市盈率高于差公司。（PS：市盈率有个缺点就是，它不适合净利润是负数的企业，如果是负数，那市盈率就是负数。）</p>
+<p>先说成长期的企业。因为成长期的企业要扩大规模、拓展销售渠道、招兵买马等，会支出大笔的费用，势必会影响当期的利润（忘了的再去回忆一下公式），但是以后资本投入减少利润就会大幅增长。而处于成熟期的企业，未来的增长空间有限，利润指不定哪天就开始下滑了，所以市场也很悲观。</p>
+<p>好公司为什么市盈率高呢？因为市场通常遵循马太效应，好企业越来越好，差企业越来越差，所以好企业过去好，未来好的概率也大。好比企业招聘员工，企业肯定选择有工作经验、高学历的人，这些人过去优秀，当然相信在未来也能为企业创造价值。但如果一个人过去是一张白纸，高中学历、无工作经验，那你就不太可能百分百相信他以后能为企业创造价值。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20245733">知乎-PE（市盈率）是什么意思</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/21/blue-chips/" rel="prev" title="蓝筹股">
+      <i class="fa fa-chevron-left"></i> 蓝筹股
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/22/pop-mart-all-star/" rel="next" title="泡泡玛特 Dimoo 全系列整理">
+      泡泡玛特 Dimoo 全系列整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BA%E6%96%AD"><span class="nav-number">4.</span> <span class="nav-text">论断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">qiurenbo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiurenbo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
